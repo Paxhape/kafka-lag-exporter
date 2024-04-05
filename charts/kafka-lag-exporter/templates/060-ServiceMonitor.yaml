@@ -35,7 +35,7 @@ spec:
     {{- end }}
     {{- with .Values.prometheus.serviceMonitor.tlsConfig }}
     tlsConfig:
-    {{- tpl (toYaml . | nindent 6) $ }}
+    {{- tpl (toYaml . | nindent 4) $ }}
     {{- end }}
   {{- if .Values.prometheus.serviceMonitor.additionalConfig }}
 {{ toYaml .Values.prometheus.serviceMonitor.additionalConfig | indent 2}}
