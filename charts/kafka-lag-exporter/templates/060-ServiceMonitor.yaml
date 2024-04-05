@@ -33,6 +33,10 @@ spec:
     relabelings:
     {{- tpl (toYaml . | nindent 6) $ }}
     {{- end }}
+    {{- with .Values.prometheus.serviceMonitor.tlsConfig }}
+    tlsConfig:
+    {{- tpl (toYaml . | nindent 6) $ }}
+    {{- end }}
   {{- if .Values.prometheus.serviceMonitor.additionalConfig }}
 {{ toYaml .Values.prometheus.serviceMonitor.additionalConfig | indent 2}}
   {{- end }}
